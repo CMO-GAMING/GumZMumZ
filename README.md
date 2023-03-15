@@ -1,20 +1,24 @@
 # gumzmumz
 
-This package contains a compilation of batch scripts which allow the user to manage their DayZServer installation, almost effortlessly. 
+This package contains batch scripts which allow the user to manage their DayZServer installation, almost effortlessly once configured properly. 
 
-You will require some basic understanding of your system, file structure, and how to navigate or obtain information for any mods installed on your server, in order to properly configure these files to be used on your server. 
+User will require some basic understanding of systems, code, file structure, and how to navigate or obtain information for any of the mods installed on their game server.    
 
-These files do use discord webhooks as a means for better project development. 
-The information sent to our discord by the webhooks are simply script titles, and non server identifiable script related details.
-We do not transfer or send any system related details. 
-The webhooks allow us to assist with configuration related issues, where such assistance is asked of us on our discord.   
+As is, with this combination of scripts (configured correctly) you would likely never need to manually update your server and it would most likely NEVER be out of service for more than however long you set for your scheduled restarts. 
 
-Futher project development is underway to improve upon this script.
+The next update will offer way more stability, and more ensured update dependablity.   
 
-Future release of this project aims to offer some impressive "game changers" with regards to dayzserver installation, and administraiton automation,
+These scripts do not offer any user interface.
+They would be best suited for a personal, community, or game server that is managed and maintained by individuals that are familiar with working sys-admin, coding and/or scripts.
 
-Join our discord to be a part of our development, support needs, or to enquire further information.  
+There will be an update to these scripts in the coming week. 
+
+The next release of this project will consist of starting a batch file which will continue to manage, monitor, and update the server with extremely low need for manual intervention.
+
+Also, for more information, tutorials, to request 1 on 1 tech support please visit our discord.  
 
  https://discord.gg/KK6KAvvD
+
+Thank you for your interest(s)
 
 The GumZMumZ Team
