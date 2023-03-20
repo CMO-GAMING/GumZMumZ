@@ -2,22 +2,15 @@
 :START
 TITLE MOD UPDATE MANAGER
 COLOR 0A
-:: Configurable Variables Are listed below ::
-set SCRIPTTITLE=M.U.M
-:: Name of THIS BATCH FILE :: 
-:: Helps with debug & window reference, when needed.  
+set SCRIPTTITLE=M.U.M  
 set TITLE="MUM" 
 set GUM="MUM.bat"
-:: SERVER ROOT DIRECTORY ::
+:: Configurable variables below ::
 
 :: MOD UPDATE LIST ::
-:: This points to your modlist.txt file. 
-:: You will have had to created this txt file manually before starting the server.
+:: This points to your MOD_LIST_GLOBAL.txt file. 
 :: This is a required file if you want to auto udate your server. 
-:: The Modlist.txt must be unique per the dayz server instance it belongs to IE Modlist1.txt Modlist2.txt etc
-:: This is assuming you want the servers to start faster by updating only the individual mods assigned in .bat file.
 :: The contents of the file must be accurate "MODIDNUMBER,@MODNAME" one mod per line
-:: You can ignore this, or leave it blank if you perefer manually updating your server(s)
 :: If you are still not sure how this works... Join our Discord https://discord.gg/KK6KAvvD for more information . 
 set MOD_LIST=(G:\MyDayZGameServer\GumZMumZ\MOD_LIST_GLOBAL.txt)
 :: STEAMCMD DIRECTORY AND USER INFORMATION ::
