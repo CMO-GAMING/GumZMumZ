@@ -1,7 +1,7 @@
 @echo off
+color 0A
 :START
-TITLE MOD UPDATE MANAGER
-COLOR 0A
+title MOD UPDATE MANAGER
 set SCRIPTTITLE=M.U.M  
 set TITLE="MUM" 
 set GUM="MUM.bat"
