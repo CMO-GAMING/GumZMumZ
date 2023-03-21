@@ -1,24 +1,20 @@
-# gumzmumz
+This GumZMumZ package contains a combination of batch scripts and other configurable process required documents which (when configured properly) allow the user to put in place a nearly effortless method to manage their DayZServer maintenance, DayZServer installation, and Server Mod updates/maintenance. 
 
-This package contains batch scripts which allow the user to manage their DayZServer installation, almost effortlessly once configured properly. 
+This package on it's own without any tutorials or explaining does require that the user has some basic understanding of networking, file structure, comprehending code or computer language, and how to navigate or obtain information related to their steam account as well as compile basic information pertaining to any of the mods they have or would like to have installed on their game server.
 
-User will require some basic understanding of systems, code, file structure, and how to navigate or obtain information for any of the mods installed on their game server.    
+As is, with this combination of scripts (configured correctly) you may likely never need to manually update your server if you are simply running a personal dev system or a low pop server, and your server would most likely NEVER be out of service for more than the duration you have configured for scheduled restarts (2 hours, 4 hours, 6 hours, 38.5 minutes... whatever you decide)
 
-As is, with this combination of scripts (configured correctly) you would likely never need to manually update your server and it would most likely NEVER be out of service for more than however long you set for your scheduled restarts. 
+This script is simple. 
+Did I mention the installation process of this script is incredibly simple. 
+These scripts do not currently offer any user interface. 
+These scripts would best suited a personal server, a development server, but these scripts can also easily serve the needs of a gaming server with constant Que as long as you keep an eye to mod updates or core updates, and then initiate the server restart manually so all new players can still gain access. 
 
-The next update will offer way more stability, and more ensured update dependablity.   
+It would be great if you are are familiar with working sys-admin, coding and/or scripts... BUT this script can be installed by anyone in less than 10 minutes (personal knowledge, network & and system resources permitting)
 
-These scripts do not offer any user interface.
-They would be best suited for a personal, community, or game server that is managed and maintained by individuals that are familiar with working sys-admin, coding and/or scripts.
-
-There will be an update to these scripts in the coming week. 
-
-The next release of this project will consist of starting a batch file which will continue to manage, monitor, and update the server with extremely low need for manual intervention.
-
-Also, for more information, tutorials, to request 1 on 1 tech support please visit our discord.  
-
- https://discord.gg/KK6KAvvD
-
-Thank you for your interest(s)
+The next update will offer 
+~ Better monitoring practices
+~ Automatic GAME SERVER restarts on repo update. 
+~ Customizable webhooks to keep admin up to date. 
+++ much more.   
 
 The GumZMumZ Team
