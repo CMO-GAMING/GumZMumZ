@@ -1,85 +1,79 @@
-:WAIT
-cls
-echo Please keep this window open to continue running Mod Update Manager.@echo off
+@echo off
+color 0A
+title GUM - GLOBAL UPDATE MANAGER
+set SCRIPTTITTLE="G.U.M"
+set TITLE="GUM.bat" 
 :START
-TITLE MOD UPDATE MANAGER
-COLOR 0A
-:: Configurable Variables Are listed below ::
-set SCRIPTTITLE=M.U.M
-:: Name of THIS BATCH FILE :: 
-:: Helps with debug & window reference, when needed.  
-set TITLE="MUM" 
-set GUM="MUM.bat"
-:: SERVER ROOT DIRECTORY ::
+:: Configure the below "sets" to suit your system or directory setup.
+:: DAYZGHOSTFILES AKA DAYZSERVER REPOSITORY FILES ::
+:: This is the directory where the original dayzserver files will be downloaded and stored ::
+:: These files will be updated by steamcmd when the GUM.bat script is executed and reboots every xx minutes ::
+:: GUM.bat SCRIPT updates the DAYZSERVERFILES itself, it connects to the steamcmd and updates all dayserver files to their current release ::
+set DAYZGHOSTFILES="G:\MyDayZServer"
 
-:: MOD UPDATE LIST ::
-:: This points to your modlist.txt file. 
-:: You will have had to created this txt file manually before starting the server.
-:: This is a required file if you want to auto udate your server. 
-:: The Modlist.txt must be unique per the dayz server instance it belongs to IE Modlist1.txt Modlist2.txt etc
-:: This is assuming you want the servers to start faster by updating only the individual mods assigned in .bat file.
-:: The contents of the file must be accurate "MODIDNUMBER,@MODNAME" one mod per line
-:: You can ignore this, or leave it blank if you perefer manually updating your server(s)
-:: If you are still not sure how this works... Join our Discord https://discord.gg/KK6KAvvD for more information . 
-set MOD_LIST=(G:\MyDayZGameServer\GumZMumZ\MOD_LIST_GLOBAL.txt)
+:: GAME SERVER ROOT DIRECTORY ::
+:: This would be the directory where your ACTIVE GAME SERVER will be located 
+:: This directory will be where your instance/active dayzserver will reside.
+set DAYZSERVER_DIRECTORY="G:\MyDayZGameServer"
+
 :: STEAMCMD DIRECTORY AND USER INFORMATION ::
-:: Below you will need to modify/set the location of your steamcmd Directory location of steam workshop, steam user name. 
-set STEAMCMD_LOCATION=G:\SteamCMD1
-:: This is where you put the path to your steam workshop directory
-set STEAM_WORKSHOP=G:\SteamCMD1\steamapps\workshop\content\221100
+:: Below you will need to modify/set the location of your steamcmd Directory for this line you will simply put in the directory where your steamcmd.exe resides. 
+set STEAMCMD_LOCATION=G:\SteamCMD1 
+
 :: Enter your steam user name. Do not worry about a password.
 set STEAM_USER=YOURSTEAMUSERNAME
 :: No need to edit this next line...
-set STEAMCMD_DEL=5
+set STEAMCMD_DEL=10
 
-:: THINGS TO KNOW REGARDING STEAM LOGIN ::
-:: SteamCMD Will ask for your password at the time of first boot from a new device. Password is then kept in a secure hash. 
-:: You will only be prompted to enter password when you have deleted that hash. 
-:: HOWEVER, if you have 2FA enabled ** such as email authorization code ** this will continue to be a problem every time the server auto-reboots.
-:: 2FA interferes with the seamless login, update, mod update, server boot up process.
+:: TIMEOUT FOR SCRIPT RESTART ::
+set TIMEOUT1=1200
 
-:: How often do you want MUM to check SteamCMD for updates
-:: The default setting is 1800 seconds (30 minutes)
-set TIMEOUT1=1800
-
-
-:: THERE IS ABSOLUTELY NO NEED TO MODIFY THE CONTENT BELOW THIS LINE ::
-
-::::::::::::::
-goto CHECKMODS
-:CHECKMODS
+:UPDDayZServer
+@timeout 1 > NUL
+echo Welcome...
+@timeout 2 > NUL 
+echo                 Initiating %SCRIPTTITTLE%.
+@timeout 3 > NUL
 cls
-FOR /L %%s IN (2,-1,0) DO (
-	cls
-	echo Checking for mod updates in %%s seconds.. 
-	timeout 1 >nul
-)
-echo Reading in configurations/variables set in this batch and MOD_LIST. Updating Steam Workbench mods...
-@ timeout 1 >nul
+echo --PLEASE NOTE-- 
+echo 				This script will ONLY update Server CORE server files.
+@timeout 2 > NUL
+cls
+echo --PLEASE NOTE-- 
+echo 				This Script DOES NOT update Server MOD files.
+@timeout 2 > NUL
+cls
+echo --PLEASE NOTE-- 
+echo				To update Server MODS make sure you are running: MUM.Bat
+@timeout 5 > NUL
+cls
+goto STEAMCMD
+
+:STEAMCMD
+@echo off
 cd %STEAMCMD_LOCATION%
-for /f "tokens=1,2 delims=," %%g in %MOD_LIST% do steamcmd.exe +login %STEAM_USER% +workshop_download_item 221100 "%%g" +quit +cls
+steamcmd.exe +force_install_dir "%DAYZGHOSTFILES%" +login "%STEAM_USER%" +app_update 223350 validate +quit
+@timeout 1
 cls
-echo Steam Workshop files/mods are up to date.
-@ timeout 5 >nul
+echo ------------ DayZServer Files updated, and/or validating process has completed
+@timeout 1 > NUL
+cls
 goto WAIT
 
 :WAIT
 cls
-echo Please keep this window open to continue running Mod Update Manager.
-echo Closing this window will terminate MUM.
-echo MUM will check for upates every 15 Minutes.
-echo To RESTART this process early press CTRL+C enter N at the prompt.
-echo To TERMINATE this window press CTRL+C enter Y at the prompt.
-echo Otherwise let this process do what it does.
-timeout %TIMEOUT1% /nobreak >nul
-echo Restarting Mod Update Manager
-timeout 2
-goto START
-echo Closing this window will terminate MUM.
-echo MUM will check for upates every 15 Minutes.
+echo Please keep this window open to continue running Global Update Manager.
+echo Closing this window will terminate GUM.
+echo GUM will check for upates every 15 Minutes.
 echo To RESTART this process early press CTRL+C enter N at the prompt.
 echo To TERMINATE this window press CTRL+C enter Y at the prompt.
 echo Otherwise let this process do what it does.
 echo.
-echo If you need support or to see whats next in GumZMumz 1.2 "The Jester", Join our Discord https://discord.gg/KK6KAvvD community
+echo If you need support or to see whats next for GumZMumz... 
+echo 				Join our Discord https://discord.gg/KK6KAvvD community
 timeout %TIMEOUT1% /nobreak >nul
+::Time in seconds to wait before..
+timeout 1
+cls
+goto START 
+
