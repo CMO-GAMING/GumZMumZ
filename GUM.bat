@@ -72,8 +72,8 @@ echo.
 echo If you need support or to see whats next for GumZMumz... 
 echo 				Join our Discord https://discord.gg/KK6KAvvD community
 timeout %TIMEOUT1% /nobreak >nul
-::Time in seconds to wait before..
 timeout 1
 cls
 goto START 
 
+:: More updates to come in the near future ::
