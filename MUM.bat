@@ -1,5 +1,5 @@
 @echo off
-:start
+:START
 TITLE MOD UPDATE MANAGER
 COLOR 0A
 :: Configurable Variables Are listed below ::
@@ -19,14 +19,14 @@ set GUM="MUM.bat"
 :: The contents of the file must be accurate "MODIDNUMBER,@MODNAME" one mod per line
 :: You can ignore this, or leave it blank if you perefer manually updating your server(s)
 :: If you are still not sure how this works... Join our Discord https://discord.gg/KK6KAvvD for more information . 
-set MOD_LIST=(C:PATH\TO\YOUR\MOD_LIST_GLOBAL.txt)
+set MOD_LIST=(G:\MyDayZGameServer\GumZMumZ\MOD_LIST_GLOBAL.txt)
 :: STEAMCMD DIRECTORY AND USER INFORMATION ::
 :: Below you will need to modify/set the location of your steamcmd Directory location of steam workshop, steam user name. 
-set STEAMCMD_LOCATION=C:\PATHTOYOUR\steamCMD
-:: This is where you put your steam workshop directory details
-set STEAM_WORKSHOP=C:\PATHTOYOUR\steamCMD\steamapps\workshop\content\221100
+set STEAMCMD_LOCATION=G:\SteamCMD1
+:: This is where you put the path to your steam workshop directory
+set STEAM_WORKSHOP=G:\SteamCMD1\steamapps\workshop\content\221100
 :: Enter your steam user name. Do not worry about a password.
-set STEAM_USER=REPLACEWITHSTEAMUSERNAME
+set STEAM_USER=YOURSTEAMUSERNAME
 :: No need to edit this next line...
 set STEAMCMD_DEL=5
 
@@ -38,14 +38,14 @@ set STEAMCMD_DEL=5
 
 :: How often do you want MUM to check SteamCMD for updates
 :: The default setting is 1800 seconds (30 minutes)
-set timeout1=1800
+set TIMEOUT1=1800
 
 
 :: THERE IS ABSOLUTELY NO NEED TO MODIFY THE CONTENT BELOW THIS LINE ::
 
 ::::::::::::::
-
-:checkmods
+goto CHECKMODS
+:CHECKMODS
 cls
 FOR /L %%s IN (2,-1,0) DO (
 	cls
@@ -57,14 +57,19 @@ echo Reading in configurations/variables set in this batch and MOD_LIST. Updatin
 cd %STEAMCMD_LOCATION%
 for /f "tokens=1,2 delims=," %%g in %MOD_LIST% do steamcmd.exe +login %STEAM_USER% +workshop_download_item 221100 "%%g" +quit +cls
 cls
-echo Steam Workshop files are up to date!...
+echo Steam Workshop files/mods are up to date.
 @ timeout 5 >nul
-goto RESTART
+goto WAIT
 
-:RESTART
-timeout %TIMEOUT1%
-taskkill /%DZSA_EXE_RENAME% /F
-::Time in seconds to wait before..
-timeout 10
-::Go back to the top and repeat the whole cycle again
-goto start
+:WAIT
+cls
+echo Please keep this window open to continue running Mod Update Manager.
+echo Closing this window will terminate MUM.
+echo MUM will check for upates every 15 Minutes.
+echo To RESTART this process early press CTRL+C enter N at the prompt.
+echo To TERMINATE this window press CTRL+C enter Y at the prompt.
+echo Otherwise let this process do what it does.
+timeout %TIMEOUT1% /nobreak >nul
+echo Restarting Mod Update Manager
+timeout 2
+goto START
