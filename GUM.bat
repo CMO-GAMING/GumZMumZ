@@ -1,16 +1,25 @@
-@echo off
-color 0A
+:WAIT
+cls
+echo Please keep this window open to continue running Mod Update Manager.@echo off
 :START
-title MOD UPDATE MANAGER
-set SCRIPTTITLE=M.U.M  
+TITLE MOD UPDATE MANAGER
+COLOR 0A
+:: Configurable Variables Are listed below ::
+set SCRIPTTITLE=M.U.M
+:: Name of THIS BATCH FILE :: 
+:: Helps with debug & window reference, when needed.  
 set TITLE="MUM" 
 set GUM="MUM.bat"
-:: Configurable variables below ::
+:: SERVER ROOT DIRECTORY ::
 
 :: MOD UPDATE LIST ::
-:: This points to your MOD_LIST_GLOBAL.txt file. 
+:: This points to your modlist.txt file. 
+:: You will have had to created this txt file manually before starting the server.
 :: This is a required file if you want to auto udate your server. 
+:: The Modlist.txt must be unique per the dayz server instance it belongs to IE Modlist1.txt Modlist2.txt etc
+:: This is assuming you want the servers to start faster by updating only the individual mods assigned in .bat file.
 :: The contents of the file must be accurate "MODIDNUMBER,@MODNAME" one mod per line
+:: You can ignore this, or leave it blank if you perefer manually updating your server(s)
 :: If you are still not sure how this works... Join our Discord https://discord.gg/KK6KAvvD for more information . 
 set MOD_LIST=(G:\MyDayZGameServer\GumZMumZ\MOD_LIST_GLOBAL.txt)
 :: STEAMCMD DIRECTORY AND USER INFORMATION ::
@@ -62,12 +71,15 @@ echo MUM will check for upates every 15 Minutes.
 echo To RESTART this process early press CTRL+C enter N at the prompt.
 echo To TERMINATE this window press CTRL+C enter Y at the prompt.
 echo Otherwise let this process do what it does.
+timeout %TIMEOUT1% /nobreak >nul
+echo Restarting Mod Update Manager
+timeout 2
+goto START
+echo Closing this window will terminate MUM.
+echo MUM will check for upates every 15 Minutes.
+echo To RESTART this process early press CTRL+C enter N at the prompt.
+echo To TERMINATE this window press CTRL+C enter Y at the prompt.
+echo Otherwise let this process do what it does.
 echo.
 echo If you need support or to see whats next in GumZMumz 1.2 "The Jester", Join our Discord https://discord.gg/KK6KAvvD community
 timeout %TIMEOUT1% /nobreak >nul
-echo Restarting Mod Update Manager
-taskkill /%DZSA_EXE_RENAME% /F
-::Time in seconds to wait before..
-timeout 2
-::Go back to the top and repeat the whole cycle again
-goto START
