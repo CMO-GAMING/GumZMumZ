@@ -39,8 +39,8 @@ set MOD_LIST=(G:\MyDayZGameServer\GumZMumz\MOD_LIST_GLOBAL.txt)
 set CONFIG=ServerDZ_SRV1.cfg
 
 :: PORT :: 
-:: Please set your Game Port
-set GPORT=2368
+:: Please SET YOUR GAME PORT ::
+set GPORT=XXXX
 
 :: MODLIST ::
 :: Here you will enter your MODS you will be running on the server
