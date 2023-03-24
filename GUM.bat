@@ -1,27 +1,37 @@
 @echo off
 color 0A
-title GUM - GLOBAL UPDATE MANAGER
-set SCRIPTTITTLE="G.U.M"
-set TITLE="GUM.bat" 
+title GUM-GLOBAL UPDATE MANAGER
+set SCRIPTTITTLE="G.U.M - GLOBAL UPDATE MANAGER"
+set SCRIPTVERSION="GumZMumz 1.0" 
 :START
-:: Configure the below "sets" to suit your system or directory setup.
-:: DAYZGHOSTFILES AKA DAYZSERVER REPOSITORY FILES ::
-:: This is the directory where the original dayzserver files will be downloaded and stored ::
-:: These files will be updated by steamcmd when the GUM.bat script is executed and reboots every xx minutes ::
-:: GUM.bat SCRIPT updates the DAYZSERVERFILES itself, it connects to the steamcmd and updates all dayserver files to their current release ::
-set DAYZGHOSTFILES="G:\MyDayZServer"
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Please change the variables below to match your current DayZServer System Configuration               ::
+:: When you run this script a cmd prompt will open up and connect to SteamCMD                            ::
+:: You will be prompted for the password that goes with the steam username you declare in variable below ::
+:: Wait for the download or verification process to indicate your core files are up to date              ::
+:: Leave GUM window running to check for updates every 15 minutes                                        ::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:: GAME SERVER ROOT DIRECTORY ::
-:: This would be the directory where your ACTIVE GAME SERVER will be located 
-:: This directory will be where your instance/active dayzserver will reside.
-set DAYZSERVER_DIRECTORY="G:\MyDayZGameServer"
+:: GHOSTFILES ::
+:: Directory where the CORE dayzserver files have been *or will be* downloaded by the script, and archived::
+:: NOTE: You will want to create this directory, before running this script, if DIR is not already present::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+set DAYZGHOSTFILES="G:\DayZServer"
 
 :: STEAMCMD DIRECTORY AND USER INFORMATION ::
-:: Below you will need to modify/set the location of your steamcmd Directory for this line you will simply put in the directory where your steamcmd.exe resides. 
-set STEAMCMD_LOCATION=G:\SteamCMD1 
+:: Below you will need to modify/set the location of your SteamCMD Directory. If you are following our    ::
+:: Instructions for this installation then this line is already accurate, if you are configuring GumZMumz ::
+:: to run with a previous installation of steamcmd and dayzserver you may need to change this variable.   ::
+:: The directory where your steamcmd.exe can be found                                                     ::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+set STEAMCMD_LOCATION=G:\SteamCMD 
 
-:: Enter your steam user name. Do not worry about a password.
-set STEAM_USER=YOURSTEAMUSERNAME
+:: YOUR STEAM USERNAME ::
+:: Enter your steam user name. Do not worry about a password. If this is your first time running GUM.bat  ::
+:: you will be prompted for a password when you run the script. If you have previously run steamcmd.exe   ::
+:: the steamcmd directory will already have your user criteria stored. GUMZMUMZ                           ::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+set STEAM_USER=CURLYHORSE2261
 :: No need to edit this next line...
 set STEAMCMD_DEL=10
 
@@ -29,24 +39,21 @@ set STEAMCMD_DEL=10
 set TIMEOUT1=1200
 
 :UPDDayZServer
+echo Welcome... %SCRIPTTITTLE% %SCRIPT_VERSION%
 @timeout 1 > NUL
-echo Welcome...
-@timeout 2 > NUL 
-echo                 Initiating %SCRIPTTITTLE%.
-@timeout 3 > NUL
 cls
 echo --PLEASE NOTE-- 
 echo 				This script will ONLY update Server CORE server files.
 @timeout 2 > NUL
-cls
 echo --PLEASE NOTE-- 
 echo 				This Script DOES NOT update Server MOD files.
 @timeout 2 > NUL
-cls
 echo --PLEASE NOTE-- 
 echo				To update Server MODS make sure you are running: MUM.Bat
-@timeout 5 > NUL
+@timeout 8 > NUL
 cls
+@timeout 2 > NUL 
+echo                 Initiating %SCRIPTTITTLE%.
 goto STEAMCMD
 
 :STEAMCMD
@@ -62,15 +69,19 @@ goto WAIT
 
 :WAIT
 cls
-echo Please keep this window open to continue running Global Update Manager.
+echo Process has completed. Core DayZServer files are now up to date
+echo Keep this window open to continue running Global Update Manager.
 echo Closing this window will terminate GUM.
-echo GUM will check for upates every 15 Minutes.
+echo GUM will check for upates every 15 Minutes by default.
 echo To RESTART this process early press CTRL+C enter N at the prompt.
 echo To TERMINATE this window press CTRL+C enter Y at the prompt.
-echo Otherwise let this process do what it does.
+echo Otherwise allow this process/script to do what it does.
 echo.
-echo If you need support or to see whats next for GumZMumz... 
-echo 				Join our Discord https://discord.gg/KK6KAvvD community
+echo If you need support, to be a part of our community, or to enquire 
+echo             .....  what's next for GumZMumz  ... 
+echo 				Join our Discord 
+echo.
+echo                          https://discord.gg/KK6KAvvD community
 timeout %TIMEOUT1% /nobreak >nul
 timeout 1
 cls
