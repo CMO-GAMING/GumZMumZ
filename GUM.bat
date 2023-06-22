@@ -16,7 +16,7 @@ set SCRIPTVERSION="GumZMumz 1.0"
 :: Directory where the CORE dayzserver files have been *or will be* downloaded by the script, and archived::
 :: NOTE: You will want to create this directory, before running this script, if DIR is not already present::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-set DAYZGHOSTFILES="G:\DayZServer"
+set DAYZGHOSTFILES="G:\dayzserver"
 
 :: STEAMCMD DIRECTORY AND USER INFORMATION ::
 :: Below you will need to modify/set the location of your SteamCMD Directory. If you are following our    ::
@@ -24,14 +24,14 @@ set DAYZGHOSTFILES="G:\DayZServer"
 :: to run with a previous installation of steamcmd and dayzserver you may need to change this variable.   ::
 :: The directory where your steamcmd.exe can be found                                                     ::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-set STEAMCMD_LOCATION=G:\SteamCMD 
+set STEAMCMD_LOCATION=G:\steamcmd
 
 :: YOUR STEAM USERNAME ::
 :: Enter your steam user name. Do not worry about a password. If this is your first time running GUM.bat  ::
 :: you will be prompted for a password when you run the script. If you have previously run steamcmd.exe   ::
 :: the steamcmd directory will already have your user criteria stored. GUMZMUMZ                           ::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-set STEAM_USER=CURLYHORSE2261
+set STEAM_USER=CHANGETHISTOYOURSTEAMUSERNAME
 :: No need to edit this next line...
 set STEAMCMD_DEL=10
 
