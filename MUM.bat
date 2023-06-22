@@ -19,14 +19,14 @@ set GUM="MUM.bat"
 :: The contents of the file must be accurate "MODIDNUMBER,@MODNAME" one mod per line
 :: You can ignore this, or leave it blank if you perefer manually updating your server(s)
 :: If you are still not sure how this works... Join our Discord https://discord.gg/KK6KAvvD for more information . 
-set MOD_LIST=(G:\MyDayZGameServer\GumZMumZ\MOD_LIST_GLOBAL.txt)
+set MOD_LIST=(G:\mydayzserver\MOD_LIST_GLOBAL.txt)
 :: STEAMCMD DIRECTORY AND USER INFORMATION ::
 :: Below you will need to modify/set the location of your steamcmd Directory location of steam workshop, steam user name. 
 set STEAMCMD_LOCATION=G:\SteamCMD1
 :: This is where you put the path to your steam workshop directory
-set STEAM_WORKSHOP=G:\SteamCMD1\steamapps\workshop\content\221100
+set STEAM_WORKSHOP=G:\steamcmd\steamapps\workshop\content\221100
 :: Enter your steam user name. Do not worry about a password.
-set STEAM_USER=YOURSTEAMUSERNAME
+set STEAM_USER=CHANGETHISTOYOURSTEAMUSERNAME
 :: No need to edit this next line...
 set STEAMCMD_DEL=5
 
