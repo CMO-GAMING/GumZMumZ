@@ -7,31 +7,34 @@ color 0A
 :: Name of THIS BATCH FILE :: 
 :: Helps with debug & window reference, when needed.  
 set FILENAME="START_SERVER.bat" 
-:: Name of the SERVER TITLE :: 
-:: This will be the Name of your Game server instance. 
-:: Enter the same name here as you have it listed in your .cfg file
-set SERVERTITLE="My GumZMumZ Server 1" 
+
+:: Name your server. SERVER HOSTNAME :: 
+:: This will be the Name of your Game server instance.
+:: This should be the same name that you want to show up in the dayz launchers. 
+:: This entry here in this file does not set the launcher name, it is for purely for err/log use only.
+:: Use the same name here as you have listed in your .cfg file 
+set SERVERTITLE="CHANGE-THIS-TO-YOUR-UNIQUE-SERVER-NAME" 
 
 :: DAYZGHOSTFILES AKA DAYZSERVER REPOSITORY FILES ::
 :: This is the directory where the original dayzserver files will be downloaded and stored ::
 :: These files will be updated by steamcmd when the GUM.bat script is executed and reboots every xx minutes ::
 :: GUM.bat SCRIPT updates the DAYZSERVERFILES itself, it connects to the steamcmd and updates all dayserver files to their current release ::
-set DAYZGHOSTFILES=G:\MyDayZServer
+set DAYZGHOSTFILES=G:\dayzserver
 
 :: SERVER ROOT DIRECTORY ::
 :: This would be the directory where the default DayZServer_x64.exe file is located 
 :: By default dayzserver is installed at C:\Steamlibrary\steamapps\common\DayZServer\
 :: You can modify this  if your directory is different
-set DAYZSERVER_DIRECTORY="G:\MyDayZGameServer"
+set DAYZSERVER_DIRECTORY="G:\mydayzserver"
 
 :: This is where you put your steam workshop directory details
-set STEAM_WORKSHOP=G:\SteamCMD1\steamapps\workshop\content\221100
+set STEAM_WORKSHOP=G:\steamcmd\steamapps\workshop\content\221100
 
 :: MOD UPDATE LIST ::
 :: This points to your MOD_LIST_GLOBAL.txt file. 
 :: This is required if you want to auto udate your server. 
 :: The contents of the file must be accurate "MODIDNUMBER,@MODNAME" one mod per line.
-set MOD_LIST=(G:\MyDayZGameServer\GumZMumz\MOD_LIST_GLOBAL.txt)
+set MOD_LIST=(G:\mydayzserver\MOD_LIST_GLOBAL.txt)
 
 :: SERVERDZ.CFG ::
 :: The name of your serverDZ.cfg file if you have renamed it. 
@@ -43,7 +46,7 @@ set CONFIG=ServerDZ_SRV1.cfg
 set GPORT=XXXX
 
 :: MODLIST ::
-:: Here you will enter your MODS you will be running on the server
+:: Here you will enter your MODS you will be running on the server IE: ACTIVEMODS=@EXAMPLEMODNAME1;@EXAMPLEMODNAME2;@EXAMPLEMODNAME3
 set ACTIVEMODS=
 
 :: PROFILES FOLDER INFORMATION ::
@@ -52,17 +55,17 @@ set ACTIVEMODS=
 :: Instead, the provided profiles folder will be AUTO GENERATED on FIRST boot. 
 :: This profile location becomes home to any mod generated configurable files IE: Dayz Expansion, Community online tools, or V++ADMIN.
 :: This IS NOT the same folder as your mpmissions storage folder... 
-set PROFILES=G:\MyDayZGameServer\profiles-SRV1
+set PROFILES=G:\mydayzserver\profiles-SRV1
 
 :: The path to your battleye folder...
-set BEpath=G:\MyDayZGameServer\battleye-SRV1
+set BEpath=G:\mydayzserver\battleye-SRV1
 
 :: GIVE YOUR SERVER INSTANCE IT'S OWN DayZServer-x64-INSTANCE-ID.exe name "
 :: Below you can choose to rename your dayzserver executable file in order to match this specific batch file configuration variables as well as specific serverDZ.cfg parameters.
 set DZSA_EXE_RENAME=DayZServer_x64_SRV1.exe
 :: How often do you want to restart your dayzserer
-:: The below example number will restart the server every 4 hours
-set timeout1=14600
+:: The below example of 14400 will restart the server every 4 hours
+set timeout1=14400
 
 :: As long as you have entered the correct information as requested and outlined above the server will start, update, and continue to reboot/update every x hours. 
 :: You can use the same directory for multiple instances of servers AS LONG AS YOU CHANGE THE ABOVE INFORMATION PER SERVER.
@@ -71,7 +74,7 @@ set timeout1=14600
 :: THERE IS ABSOLUTELY NO NEED TO MODIFY THE CONTENT BELOW THIS LINE ::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 set ="START_SERVER.bat" 
-set LOG_DIR=G:\MyDayZGameServer\GumZMumZ\logs
+set LOG_DIR=G:\mydayzserver\profiles-SRV1\GumZMumZ\logs
 set LOG_FILE=%LOG_DIR%\start_server_output.log
 set ERROR_LOG_FILE=%LOG_DIR%\start_server_errors.log
 if not exist %LOG_DIR% mkdir %LOG_DIR%
