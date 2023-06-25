@@ -69,6 +69,12 @@ echo MUM will check for upates every 15 Minutes.
 echo To RESTART this process early press CTRL+C enter N at the prompt.
 echo To TERMINATE this window press CTRL+C enter Y at the prompt.
 echo Otherwise let this process do what it does.
+echo.
+echo If you need support, to be a part of our community, or to enquire 
+echo             .....  what's next for GumZMumz  ... 
+echo 				Join our Discord 
+echo.
+echo                          https://discord.gg/KK6KAvvD community
 timeout %TIMEOUT1% /nobreak >nul
 echo Restarting Mod Update Manager
 timeout 2
