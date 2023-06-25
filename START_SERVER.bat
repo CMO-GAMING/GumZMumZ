@@ -39,7 +39,7 @@ set MOD_LIST=(G:\mydayzserver\MOD_LIST_GLOBAL.txt)
 :: SERVERDZ.CFG ::
 :: The name of your serverDZ.cfg file if you have renamed it. 
 :: If you are only running one instance and using the default simply enter serverDZ.cfg
-set CONFIG=ServerDZ_SRV1.cfg
+set CONFIG=serverDZ_SRV1.cfg
 
 :: PORT :: 
 :: Please SET YOUR GAME PORT ::
