@@ -22,7 +22,7 @@ set GUM="MUM.bat"
 set MOD_LIST=(G:\mydayzserver\MOD_LIST_GLOBAL.txt)
 :: STEAMCMD DIRECTORY AND USER INFORMATION ::
 :: Below you will need to modify/set the location of your steamcmd Directory location of steam workshop, steam user name. 
-set STEAMCMD_LOCATION=G:\SteamCMD1
+set STEAMCMD_LOCATION=G:\steamcmd
 :: This is where you put the path to your steam workshop directory
 set STEAM_WORKSHOP=G:\steamcmd\steamapps\workshop\content\221100
 :: Enter your steam user name. Do not worry about a password.
